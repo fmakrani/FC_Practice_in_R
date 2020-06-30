@@ -50,5 +50,5 @@ fit<- auto.arima(corona_ts, xreg = fourier(corona_kwt, K= 2, seasonal = F, lambd
 #Not Successful
 
 corona_tbats<-corona_ts%>% tbats()%>% forecast(h=100)
-corona_tbats
+corona_tbats 
   autoplot()+xlab("Day Number")+ylab("Corona Cases in Kuwait")
