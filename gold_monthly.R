@@ -2,8 +2,8 @@ library(fpp2)
 library(readxl)
 library(tidyverse)
 
-gold_month<- read_xlsx("gold_price.xlsx")
-gold_ts<- ts(gold_month[,2], start = 1000)
+gold_month<- read_xlsx("gold_price.xlsx") # read excel
+gold_ts<- ts(gold_month[,2], start = 1000) #start reading the time series from 1000 month
 
 goldfc<- tbats(gold_ts)%>%forecast(h=36)
 autoplot(goldfc)

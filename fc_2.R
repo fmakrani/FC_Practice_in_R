@@ -6,7 +6,7 @@ library(tidyverse)
 
 corona_kwt<- read_xlsx("corona-cases-kuwait.xlsx")
 head(corona_kwt)
-corona_ts_Pat<- ts(corona_kwt[,3])
+corona_ts_Pat<- ts(corona_kwt[,3]) #patients in bed
 head(corona_ts_Pat)
 arima_kw_Pat<- auto.arima(corona_ts_Pat)%>%
   forecast(30)

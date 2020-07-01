@@ -1,8 +1,8 @@
 library(fpp2)
 library(tidyverse)
 library(lubridate)
-training<- window(corona_ts, end= 110)
-test<- window(corona_ts, start= 110)
+training<- window(corona_ts, end= 110) #train the R for 110 days
+test<- window(corona_ts, start= 110) #Testing starts from 110 days
 fc<- naive(training, h=17)
 autoplot(fc)+
   autolayer(test, series = "Test Data")

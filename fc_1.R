@@ -10,7 +10,7 @@ corona_kwt<- read_xlsx("corona-cases-kuwait.xlsx")
 tail(corona_kwt)
 corona_ts<- ts(corona_kwt[,2])
 autoplot(corona_ts)
-BoxCox.lambda(corona_ts)
+BoxCox.lambda(corona_ts) #check lambda
 arima_kw<- auto.arima(corona_ts)%>%
   forecast(h=30)
 
