@@ -52,3 +52,18 @@ fit<- auto.arima(corona_ts, xreg = fourier(corona_kwt, K= 2, seasonal = F, lambd
 corona_tbats<-corona_ts%>% tbats()%>% forecast(h=100)
 corona_tbats 
   autoplot()+xlab("Day Number")+ylab("Corona Cases in Kuwait")
+
+  library(dygraphs)
+  
+  corona_ts %>%
+    stlf(lambda = 0.2453431, h = 30) %>%
+    {cbind(actuals=.$x, forecast_mean=.$mean,
+           lower_95=.$lower[,"95%"], upper_95=.$upper[,"95%"],
+           lower_80=.$lower[,"80%"], upper_80=.$upper[,"80%"])} %>%
+    dygraph() %>%
+    dySeries("actuals", color = "black") %>%
+    dySeries(c("lower_80", "forecast_mean", "upper_80"),
+             label = "80%", color = "blue") %>%
+    dySeries(c("lower_95", "forecast_mean", "upper_95"),
+             label = "95%", color = "blue")
+  

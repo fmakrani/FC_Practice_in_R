@@ -15,13 +15,12 @@ autoplot(arima_kw_Pat)+
   ylab("Under Treatment")+
   ggtitle("Patients Under Treatment in Kuwait ARIMA")+
   guides(colour=guide_legend(title="Data series"), 
-          fill=guide_legend(title="Prediction interval"))+
-  scale_color_manual(values=clrs)
+          fill=guide_legend(title="Prediction interval"))
 
 arima_kw_Pat
 
 corona_tbats_pat<- tbats(corona_ts_Pat)%>% forecast(h=30)
-corona_tbats_pat%>% autoplot()+ autolayer(levels("85%", "95%"))
+corona_tbats_pat%>% autoplot()+ 
   xlab("Day Number")+ylab("Patients in Bed")+
   ggtitle("Corona KW Forecasts with my TBAT")+
   guides(color= guide_legend("Prediction interval"))
@@ -30,7 +29,3 @@ head(corona_tbats_pat)
 
 install.packages("dygraphs")
 library(dygraphs)
-corona_tbats_pat%>%
-  {cbind()
-    $level
-    [1] 80 95
