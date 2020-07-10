@@ -16,3 +16,4 @@ autoplot(goldINR)
 goldfc<- tbats(goldINR)%>% forecast(h=3000)
 autoplot(goldfc)+xlab("Days")+ylab("Price INR/Ounce")+ggtitle("Gold Price INR Forecast fore next 3000 Days")
 
+?read.table
