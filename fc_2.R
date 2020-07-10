@@ -13,9 +13,8 @@ arima_kw_Pat<- auto.arima(corona_ts_Pat)%>%
 autoplot(arima_kw_Pat)+
   xlab("Day")+
   ylab("Under Treatment")+
-  ggtitle("Patients Under Treatment in Kuwait ARIMA")+
-  guides(colour=guide_legend(title="Data series"), 
-          fill=guide_legend(title="Prediction interval"))
+  ggtitle("Patients Under Treatment in Kuwait ARIMA forecast")
+
 
 arima_kw_Pat
 

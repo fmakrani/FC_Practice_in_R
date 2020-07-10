@@ -9,7 +9,7 @@ tail(corona_kwt)
 corona_ts<- ts(corona_kwt[,2])
 autoplot(corona_ts)
 BoxCox.lambda(corona_ts) #check lambda
-arima_kw<- auto.arima(corona_ts, lambda = 0.2478059)%>%
+arima_kw<- auto.arima(corona_ts, lambda = 0.275571)%>%
   forecast(h=30)
 
 checkresiduals(arima_kw)
