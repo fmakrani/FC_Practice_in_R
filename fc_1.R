@@ -9,7 +9,7 @@ tail(corona_kwt)
 corona_ts<- ts(corona_kwt[,2])
 autoplot(corona_ts)
 BoxCox.lambda(corona_ts) #check lambda
-arima_kw<- auto.arima(corona_ts, lambda = 0.275571)%>%
+arima_kw<- auto.arima(corona_ts, lambda = 0.273)%>%
   forecast(h=30)
 
 checkresiduals(arima_kw)
@@ -18,7 +18,7 @@ autoplot(arima_kw)+
   xlab("Day")+
   ylab("No of Cases")+
   ggtitle("Daily No of Cases ARIMA Model No professional use")
-
+arima_kw
 #arima_kw
 
 ggAcf(corona_ts)
